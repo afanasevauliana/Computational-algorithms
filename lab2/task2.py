@@ -1,13 +1,21 @@
 def transpose_matrix(matrix):
     rows = len(matrix)
-    cols = len(matrix)
-    matrix2 = [[0] * rows for i in range(cols)]
+    cols = len(matrix[0])
+    matrix2 = []
+    for i in range(cols):
+        matrix2.append([0] * rows)
+    for i in range(rows):
+        for j in range(cols):
+            matrix2[j][i] = matrix[i][j]
     return matrix2
 
 def main():
-    matrix = [[1, 2, 3], [4, 5, 6, 8, 7]]
+    matrix = [[1, 2, 3], 
+             [4, 5, 6]]
     answer = transpose_matrix(matrix)
-    print(answer)
+    print("Транспонированная матрица:")
+    for rows in answer:
+        print(rows)
 
 if __name__ == "__main__":
     main()
