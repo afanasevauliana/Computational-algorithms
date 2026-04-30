@@ -4,6 +4,7 @@ def transpose_matrix(matrix):
     matrix2 = []
     for i in range(cols):
         matrix2.append([0] * rows)
+    print(matrix2)
     for i in range(rows):
         for j in range(cols):
             matrix2[j][i] = matrix[i][j] 
