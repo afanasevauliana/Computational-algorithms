@@ -1,14 +1,14 @@
 import time
 import random
 import string
-class Stack:
+class Stack: # LIFO
     class Node:
         def __init__(self, value, next_node=None):
             self.value = value
             self.next_node = next_node
 
     def __init__(self):
-        self.top = None
+        self.top = None # ук на вершину
         self.size = 0
 
     def push(self, value): # добавление элемента в стек
@@ -27,19 +27,13 @@ class Stack:
     def is_empty(self):
         return self.top is None
 
-    def get_size(self):
-        return self.size
-
-
 def is_reverse(s1, s2):
     if len(s1) != len(s2):
         return False
 
     stack = Stack()
-    # 1. Кладём все символы s1 в стек
     for ch in s1:
-        stack.push(ch)
-    # 2. Сравниваем символы из стека (обратный порядок) с s2
+        stack.push(ch) # 1 символ s1 окажется в самом низу, а последний — на вершине
     for ch in s2:
         if stack.pop() != ch:
             return False
@@ -49,7 +43,7 @@ def is_reverse2(s1, s2):
     if len(s1) == len(s2):
         len_s1 = len(s1)
         for i in range(len_s1):
-            if s1[i] != s2[-i]:
+            if s1[i] != s2[len_s1 - 1 - i]:
                 return False
     else:
         return False
