@@ -18,7 +18,7 @@ def merge_list(a, b):
             j += 1
     return c + a[i:] + b[j:]
 
-with open("m100.txt", 'r', encoding='utf-8') as file:
+with open("m400.txt", 'r', encoding='utf-8') as file:
     a = file.readline().split()
     cnt_rows = int(a[0])
     cnt_cols = int(a[1])
