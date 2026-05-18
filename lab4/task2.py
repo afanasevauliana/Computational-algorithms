@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib.patches import FancyBboxPatch
+import time
 
 # Глобальные переменные
 frames = []
@@ -161,7 +162,7 @@ def draw_tree_animation():
     plt.show()
     return anim
 
-with open("m2.txt", 'r', encoding='utf-8') as file:
+with open("m1.txt", 'r', encoding='utf-8') as file:
     a = file.readline().split()
     cnt_rows = int(a[0])
     cnt_cols = int(a[1])
@@ -174,12 +175,15 @@ with open("m2.txt", 'r', encoding='utf-8') as file:
     
     print(f"Количество элементов: {cnt_rows * cnt_cols}")
     print(f"Одномерный массив: {array}")
-
-# Очищаем кадры перед сортировкой
-frames = []
-max_depth = get_depth(array)
-sorted_arr, _, _, _ = merge_sort(array, x=0, y=10, max_depth=max_depth)
-print(f"Отсортированный массив: {sorted_arr}")
+    start_time = time.time()
+    # Очищаем кадры перед сортировкой
+    frames = []
+    max_depth = get_depth(array)
+    sorted_arr, _, _, _ = merge_sort(array, x=0, y=10, max_depth=max_depth)
+    end_time = time.time()
+    rez_time = end_time - start_time
+    print(f"Отсортированный массив: {sorted_arr}")
+    print(f"Время выполнения сортировки: {rez_time * 1000000:.2f} мкс")
 
 # Запускаем анимацию
 draw_tree_animation()
