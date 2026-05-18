@@ -28,8 +28,8 @@ def merge_sort(arr, x=0, y=0, level=0, max_depth=None):
         return arr, level, x, y  # возвращаем также координаты
     
     sr = len(arr) // 2
-    left = arr[:sr]
-    right = arr[sr:]
+    left_side = arr[:sr]
+    right_side = arr[sr:]
     
     # Координаты детей
     if level == 0:  # корень
@@ -52,7 +52,7 @@ def merge_sort(arr, x=0, y=0, level=0, max_depth=None):
     })
     
     left_result, left_max_level, left_final_x, left_final_y = merge_sort(
-        left, x_left, y_child, level + 1, max_depth)
+        left_side, x_left, y_child, level + 1, max_depth)
     
     frames.append({
         'type': 'edge',
@@ -61,7 +61,7 @@ def merge_sort(arr, x=0, y=0, level=0, max_depth=None):
     })
     
     right_result, right_max_level, right_final_x, right_final_y = merge_sort(
-        right, x_right, y_child, level + 1, max_depth)
+        right_side, x_right, y_child, level + 1, max_depth)
     
     # Слияние
     result = merge_list(left_result, right_result)
@@ -161,7 +161,7 @@ def draw_tree_animation():
     plt.show()
     return anim
 
-with open("m1.txt", 'r', encoding='utf-8') as file:
+with open("m2.txt", 'r', encoding='utf-8') as file:
     a = file.readline().split()
     cnt_rows = int(a[0])
     cnt_cols = int(a[1])
