@@ -46,6 +46,3 @@ if __name__ == "__main__":
         index_in_text = rabin_karp_simple(text, s)
         end = time.perf_counter()
         print(f"{m:^20} | {(end-start):^15.8f}")
-
-
-
